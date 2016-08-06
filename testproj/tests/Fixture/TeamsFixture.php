@@ -19,7 +19,8 @@ class TeamsFixture extends TestFixture
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'leader_user_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'section_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'section_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'size_limit' => ['type' => 'biginteger', 'length' => 20, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
             'fk_teams_user_id' => ['type' => 'index', 'columns' => ['leader_user_id'], 'length' => []],
             'fk_teams_section_id' => ['type' => 'index', 'columns' => ['section_id'], 'length' => []],
@@ -45,7 +46,8 @@ class TeamsFixture extends TestFixture
         [
             'id' => 1,
             'leader_user_id' => 1,
-            'section_id' => 1
+            'section_id' => 1,
+            'size_limit' => 1
         ],
     ];
 }

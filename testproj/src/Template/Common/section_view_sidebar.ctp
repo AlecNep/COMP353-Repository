@@ -55,9 +55,7 @@
 				['text' => 'Manage groups', 
 				 'url' => ['controller' => 'Teams', 
 				 		   'action' => 'index',
-				 		   $section->id]],
-				['text' => 'Set filesize limit', 
-				 'url' => []]
+				 		   $section->id]]
 			]];
 	}
 

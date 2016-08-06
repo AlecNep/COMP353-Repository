@@ -38,6 +38,11 @@ class TeamsController extends AppController
                         $user->isAdmin();
                 }
                 break;
+            case 'setFileSizeLimit':
+                $team = $this->Teams->get($pass[0]);
+                return ($user->isInstructor($team->section_id) ||
+                        $user->isAdmin());
+                break;
         }
         return false;
     }
@@ -49,7 +54,6 @@ class TeamsController extends AppController
         $this->loadModel('Users');
         $this->loadModel('Sections');
     }
-
 
     /**
      * Index method
@@ -156,7 +160,7 @@ class TeamsController extends AppController
             if ($this->Teams->save($team)) {
                 $this->Flash->success(__('The team has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'view', $team->id]);
             } else {
                 $this->Flash->error(__('The team could not be saved. Please, try again.'));
             }

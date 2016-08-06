@@ -43,7 +43,8 @@ class TeamsTable extends Table
             'foreignKey' => 'leader_user_id'
         ]);
         $this->belongsTo('Sections', [
-            'foreignKey' => 'section_id'
+            'foreignKey' => 'section_id',
+            'joinType' => 'INNER'
         ]);
         $this->hasMany('Students', [
             'foreignKey' => 'team_id'
@@ -64,6 +65,9 @@ class TeamsTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
+
+        $validator
+            ->allowEmpty('size_limit');
 
         return $validator;
     }

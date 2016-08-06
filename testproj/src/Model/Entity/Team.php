@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $leader_user_id
  * @property int $section_id
+ * @property int $size_limit
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Section $section
@@ -31,4 +32,8 @@ class Team extends Entity
         '*' => true,
         'id' => false
     ];
+
+    protected function _setSizeLimit($value){
+        return $value==null?'10485760':$value;
+    }
 }

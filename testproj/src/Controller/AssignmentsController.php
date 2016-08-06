@@ -575,6 +575,12 @@ class AssignmentsController extends AppController
                     return false;
             }
 
+            // $newtotalsize = $file['size']+$this->Submissions->getSizeUsed($team->id);
+            // $allowedsize = $team->size_limit;
+            // if ($newtotalsize > $allowedsize){
+
+            // }
+            
             // You should also check filesize here. 
             if ($file['size'] > 500000000) {
                 $this->Flash->error(__('File is too big.' )); 

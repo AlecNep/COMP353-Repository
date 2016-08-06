@@ -91,4 +91,15 @@ class SubmissionsTable extends Table
 
         return $rules;
     }
+
+    public function getSizeUsed($team_id){
+        $submissions = $this->find('all', 
+            ['contain' => ['Files']])
+            ->where(['team_id' => $team_id]);
+        $total = 0;
+        foreach($submissions as $submission){
+            $total += $submission->file->size_bytes;
+        }
+        return $total;
+    }
 }
